@@ -1,0 +1,126 @@
+/* Estilo do Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Coloca o modal acima de outros elementos */
+  padding: 10px; /* Adiciona um pequeno padding para não deixar o modal encostar nas bordas da tela */
+}
+
+/* Estilo do conteúdo do modal */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px; /* Limita a largura máxima do modal */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Garante que o conteúdo do modal esteja centralizado */
+  align-items: center; /* Garante que o conteúdo do modal esteja centralizado horizontalmente */
+  min-height: 200px; /* Garante uma altura mínima para o conteúdo */
+  position: relative; /* Necessário para o posicionamento absoluto do botão de fechar */
+}
+
+.close-button {
+  position: absolute; /* Faz o botão "X" flutuar em relação ao modal */
+  top: 10px; /* Distância de 10px do topo */
+  left: 10px; /* Distância de 10px da esquerda */
+  font-size: 30px;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1100; /* Garantir que o botão fique acima do conteúdo do modal */
+  transition: color 0.3s;
+}
+
+.close-button:hover {
+  color: #ff0000; /* Muda a cor para vermelho ao passar o mouse */
+}
+
+/* Estilos do container de informações da empresa */
+.company-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Logo da empresa */
+.company-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+  max-width: 100%; /* Garante que a imagem não ultrapasse o tamanho do contêiner */
+}
+
+/* Nome da empresa */
+.company-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Versão do sistema */
+.company-version {
+  font-size: 16px;
+  color: #777;
+}
+
+/* Descrição adicional */
+.description {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+  padding: 0 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .company-logo {
+    width: 120px; /* Reduz o tamanho da logo em telas menores */
+  }
+
+  .company-name {
+    font-size: 20px; /* Ajusta o tamanho da fonte do nome da empresa */
+  }
+
+  .company-version {
+    font-size: 14px; /* Ajusta o tamanho da fonte da versão */
+  }
+
+  .description {
+    font-size: 12px; /* Ajusta o tamanho da fonte da descrição */
+    padding: 0 15px;
+  }
+
+  /* Modal content adjustments */
+  .modal-content {
+    width: 90%; /* Garante que o modal não ocupe toda a largura em telas pequenas */
+    padding: 15px; /* Reduz o padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .company-name {
+    font-size: 18px; /* Ajusta o tamanho da fonte em telas ainda menores */
+  }
+
+  .company-version {
+    font-size: 12px; /* Ajusta o tamanho da fonte da versão em telas menores */
+  }
+
+  .description {
+    font-size: 10px; /* Ajusta ainda mais a fonte da descrição */
+  }
+}

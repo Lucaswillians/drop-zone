@@ -1,0 +1,63 @@
+/* Sidebar ajustada para ficar abaixo do header */
+.sidebar {
+  position: fixed;
+  top: 60px; /* Espaço para o header */
+  left: -250px;
+  width: 250px;
+  height: calc(100% - 60px); /* Altura ajustada */
+  background: white;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  transition: left 0.3s ease;
+  padding-top: 20px; /* Reduzi um pouco o padding interno */
+  z-index: 900; /* Menor que o header */
+}
+
+/* Sidebar aberta */
+.sidebar.open {
+  left: 0;
+}
+
+/* Estilos gerais do menu */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.sidebar li:hover {
+  background: #f4f4f4;
+}
+
+.sidebar li svg {
+  margin-right: 10px;
+  font-size: 22px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+  
+  .sidebar li {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 180px;
+  }
+
+  .sidebar li {
+    font-size: 14px;
+  }
+}
