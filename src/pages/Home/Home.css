@@ -55,6 +55,7 @@
   justify-content: space-between;
   gap: 16px;
   margin-top: 50px;
+  margin-left: -20px;
 }
 
 /* Texto do banner */
@@ -90,10 +91,12 @@
   .product-presentation {
     max-width: 90%;
     height: auto; /* Ajusta altura para telas menores */
+
   }
 
   .cta-container {
     flex-direction: column;
     text-align: center;
+    width: 350%;
   }
 }

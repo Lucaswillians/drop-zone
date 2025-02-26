@@ -3,9 +3,9 @@ import "./Chart.css";
 
 const data = [
   { name: "PDF", quantidade: 40 },
-  { name: "Word (DOCX)", quantidade: 25 },
-  { name: "Imagens (PNG, JPG)", quantidade: 20 },
-  { name: "Outros Arquivos", quantidade: 15 },
+  { name: "Word", quantidade: 25 },
+  { name: "Images", quantidade: 20 },
+  { name: "Others", quantidade: 15 },
 ];
 
 const FileTypeChart = () => {
