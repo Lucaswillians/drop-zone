@@ -90,10 +90,10 @@ const Card: React.FC<CardProps> = ({ titulo, descricao, nomeArquivo, arquivo, da
             <h3 className="card-title"><strong>Title: </strong>{titulo}</h3>
             <p className="card-description"><strong>Description: </strong>{descricao}</p>
             <p className="file-info"><strong>File Name: </strong>{nomeArquivo}</p>
+            <p className="card-date"><strong>Created At: </strong>{dataCriacao}</p> 
             {arquivo && (
               <GoDownload onClick={handleDownload} className="download-button" />
             )}
-            <p className="card-date"><strong>Created At: </strong>{dataCriacao}</p> 
           </>
         )}
       </div>
