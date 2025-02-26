@@ -70,13 +70,13 @@ const Documents: React.FC = () => {
           type="text"
           value={filterText}
           onChange={(e) => setFilterText(e.target.value)}
-          placeholder="Filter by title or description..."
+          placeholder="Filtre por nome ou descrição..."
           className="filter-input"
         />
       </div>
 
       <div className="cards-container">
-        <h2>Created Itens</h2>
+        <h2>Itens criados</h2>
         {filteredItems.length > 0 ? ( 
           <>
             <div className="cards-list">
@@ -109,7 +109,7 @@ const Documents: React.FC = () => {
             </div>
           </>
         ) : (
-          <p>No itens created yet!</p>
+          <p>Nenhum arquivo encontrado!</p>
         )}
       </div>
     </div>

@@ -102,8 +102,8 @@ const Card: React.FC<CardProps> = ({ titulo, descricao, nomeArquivo, arquivo, da
         <HiOutlineDotsVertical onClick={handleMenuToggle} className="menu-button" />
         {showMenu && (
           <div className="menu">
-            <button onClick={handleEditToggle}>{isEditing ? 'Save' : 'Edit'}</button>
-            <button onClick={onDelete}>Delete</button>
+            <button onClick={handleEditToggle}>{isEditing ? 'Salvar' : 'Editar'}</button>
+            <button onClick={onDelete}>Deletar</button>
           </div>
         )}
       </div>

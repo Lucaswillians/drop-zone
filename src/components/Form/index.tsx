@@ -22,6 +22,7 @@ const Form: React.FC<FormProps> = ({ onSave, initialData }) => {
   });
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [dragActive, setDragActive] = useState(false);
 
   useEffect(() => {
     if (initialData) {
@@ -37,15 +38,35 @@ const Form: React.FC<FormProps> = ({ onSave, initialData }) => {
     }));
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      const file = e.target.files[0];
+  const handleFileChange = (file: File | null) => {
+    if (file) {
       setFormData((prev) => ({
         ...prev,
         arquivo: file,
         nomeArquivo: file.name,
       }));
     }
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setDragActive(true);
+  };
+
+  const handleDragLeave = () => {
+    setDragActive(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setDragActive(false);
+    if (e.dataTransfer.files.length > 0) {
+      handleFileChange(e.dataTransfer.files[0]);
+    }
+  };
+
+  const handleClick = () => {
+    fileInputRef.current?.click();
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -60,7 +81,7 @@ const Form: React.FC<FormProps> = ({ onSave, initialData }) => {
     });
 
     if (fileInputRef.current) {
-      fileInputRef.current.value = ''; 
+      fileInputRef.current.value = '';
     }
   };
 
@@ -68,7 +89,7 @@ const Form: React.FC<FormProps> = ({ onSave, initialData }) => {
     <form onSubmit={handleSubmit}>
       <div className="form-row">
         <div className="form-field">
-          <label htmlFor="titulo">Title</label>
+          <label htmlFor="titulo">Título</label>
           <input
             className="form-input"
             type="text"
@@ -80,7 +101,7 @@ const Form: React.FC<FormProps> = ({ onSave, initialData }) => {
           />
         </div>
         <div className="form-field">
-          <label htmlFor="nomeArquivo">File name</label>
+          <label htmlFor="nomeArquivo">Nome do arquivo</label>
           <input
             className="form-input"
             type="text"
@@ -95,7 +116,7 @@ const Form: React.FC<FormProps> = ({ onSave, initialData }) => {
 
       <div className="form-row">
         <div className="form-field">
-          <label htmlFor="descricao">Description</label>
+          <label htmlFor="descricao">Descrição</label>
           <textarea
             className="form-input"
             id="descricao"
@@ -106,21 +127,31 @@ const Form: React.FC<FormProps> = ({ onSave, initialData }) => {
           />
         </div>
 
-        <div className="form-field">
-          <label htmlFor="arquivo">File</label>
+        <div
+          className={`drop-area ${dragActive ? 'active' : ''}`}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+          onClick={handleClick}
+        >
+          {formData.arquivo ? (
+            <p>📁 {formData.arquivo.name}</p>
+          ) : (
+            <p>Arraste o arquivo aqui OU <span className="click-text">clique para selecionar</span></p>
+          )}
           <input
-            className="form-input"
             type="file"
             id="arquivo"
             name="arquivo"
             accept=".exe,.zip,.bat,.pdf"
-            onChange={handleFileChange}
+            onChange={(e) => handleFileChange(e.target.files ? e.target.files[0] : null)}
             ref={fileInputRef}
+            hidden
           />
         </div>
       </div>
 
-      <button className='send' type="submit">Send</button>
+      <button className='send' type="submit">Enviar</button>
     </form>
   );
 };
