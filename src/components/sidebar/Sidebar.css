@@ -1,23 +1,20 @@
-/* Sidebar ajustada para ficar abaixo do header */
 .sidebar {
   position: fixed;
-  top: 60px; /* Espaço para o header */
+  top: 60px; 
   left: -250px;
   width: 250px;
-  height: calc(100% - 60px); /* Altura ajustada */
+  height: calc(100% - 60px); 
   background: white;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   transition: left 0.3s ease;
-  padding-top: 20px; /* Reduzi um pouco o padding interno */
-  z-index: 900; /* Menor que o header */
+  padding-top: 20px; 
+  z-index: 900; 
 }
 
-/* Sidebar aberta */
 .sidebar.open {
   left: 0;
 }
 
-/* Estilos gerais do menu */
 .sidebar ul {
   list-style: none;
   padding: 0;
@@ -46,7 +43,6 @@
   font-size: 22px;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .sidebar {
     width: 200px;
