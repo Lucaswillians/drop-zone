@@ -68,7 +68,7 @@ const Form: React.FC<FormProps> = ({ onSave, initialData }) => {
     <form onSubmit={handleSubmit}>
       <div className="form-row">
         <div className="form-field">
-          <label htmlFor="titulo">Título</label>
+          <label htmlFor="titulo">Title</label>
           <input
             className="form-input"
             type="text"
@@ -80,7 +80,7 @@ const Form: React.FC<FormProps> = ({ onSave, initialData }) => {
           />
         </div>
         <div className="form-field">
-          <label htmlFor="nomeArquivo">Nome do Arquivo</label>
+          <label htmlFor="nomeArquivo">File name</label>
           <input
             className="form-input"
             type="text"
@@ -95,7 +95,7 @@ const Form: React.FC<FormProps> = ({ onSave, initialData }) => {
 
       <div className="form-row">
         <div className="form-field">
-          <label htmlFor="descricao">Descrição</label>
+          <label htmlFor="descricao">Description</label>
           <textarea
             className="form-input"
             id="descricao"
@@ -107,7 +107,7 @@ const Form: React.FC<FormProps> = ({ onSave, initialData }) => {
         </div>
 
         <div className="form-field">
-          <label htmlFor="arquivo">Arquivo</label>
+          <label htmlFor="arquivo">File</label>
           <input
             className="form-input"
             type="file"
@@ -120,7 +120,7 @@ const Form: React.FC<FormProps> = ({ onSave, initialData }) => {
         </div>
       </div>
 
-      <button type="submit">Enviar</button>
+      <button className='send' type="submit">Send</button>
     </form>
   );
 };

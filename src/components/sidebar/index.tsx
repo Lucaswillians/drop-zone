@@ -34,7 +34,7 @@ export default function Sidebar() {
             </li>
             <li>
               <Link to="/about">
-                <AiOutlineInfoCircle /> Sobre
+                <AiOutlineInfoCircle className='icon-sidebar'/> Sobre
               </Link>
             </li>
           </ul>

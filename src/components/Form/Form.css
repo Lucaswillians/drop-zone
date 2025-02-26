@@ -52,7 +52,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+send:hover {
   background-color: #2980b9;
 }
 
