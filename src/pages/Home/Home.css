@@ -1,0 +1,99 @@
+/* Container principal */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  padding-left: 260px; /* Ajuste para sidebar */
+  gap: 24px;
+}
+
+/* Wrapper para organizar os itens lado a lado */
+.content-wrapper {
+  display: flex;
+  align-items: stretch; /* Faz com que os itens tenham a mesma altura */
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Ajuste no tamanho do gráfico */
+.chart-container {
+  flex: 1;
+  min-width: 450px;
+  max-width: 600px;
+  height: 100%; /* Faz o gráfico crescer conforme a outra caixa */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+/* Ajuste na apresentação do produto */
+.product-presentation {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 350px;
+  max-width: 565px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Mantém o conteúdo alinhado verticalmente */
+}
+
+/* Banner de chamada para ação */
+.cta-container {
+  background-color: #2980b9;
+  padding: 40px;
+  border-radius: 8px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 50px;
+}
+
+/* Texto do banner */
+.cta-text {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Botão do banner */
+.cta-button {
+  background-color: #ffffff;
+  color: #2980b9;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chart-container,
+  .product-presentation {
+    max-width: 90%;
+    height: auto; /* Ajusta altura para telas menores */
+  }
+
+  .cta-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}

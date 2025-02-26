@@ -1,0 +1,92 @@
+/* styles/chart.css */
+.chart-wrapper {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  display: flex;
+  flex-direction: column; /* Agora título fica em cima */
+  align-items: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.chart-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Container para gráfico + legenda */
+.chart-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Gráfico ocupa 70% do espaço */
+.chart-container {
+  flex: 0.7;
+  min-width: 60%;
+}
+
+/* Legenda ocupa 30% do espaço */
+.chart-legend {
+  flex: 0.3;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.chart-legend p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #374151;
+  display: flex;
+  align-items: center;
+}
+
+.chart-legend .legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.chart-legend ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.chart-legend li {
+  font-size: 0.9rem;
+  color: #6B7280;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .chart-content {
+    flex-direction: column; /* Empilha para telas pequenas */
+    align-items: center;
+  }
+
+  .chart-container {
+    min-width: 100%;
+  }
+
+  .chart-legend {
+    margin-left: 0;
+    text-align: center;
+    margin-top: 20px;
+  }
+}

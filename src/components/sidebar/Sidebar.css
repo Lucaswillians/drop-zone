@@ -32,6 +32,11 @@
   transition: background 0.3s;
 }
 
+.sidebar a {
+  text-decoration: none;
+  color: black;
+}
+
 .sidebar li:hover {
   background: #f4f4f4;
 }
