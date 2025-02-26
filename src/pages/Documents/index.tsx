@@ -14,7 +14,7 @@ const Documents: React.FC = () => {
   const [items, setItems] = useState<FormData[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const itemsPerPage = 3;
-  const [filterText, setFilterText] = useState<string>(''); // Estado para o filtro
+  const [filterText, setFilterText] = useState<string>(''); 
 
   const handleSave = (data: FormData) => {
     const newItem = {
@@ -24,13 +24,14 @@ const Documents: React.FC = () => {
     setItems((prevItems) => [...prevItems, newItem]);
   };
 
-  const handleEdit = (updatedData: { titulo: string; descricao: string; nomeArquivo: string; arquivo: File | null }) => {
+  const handleEdit = (updatedData: FormData) => {
     setItems((prevItems) =>
       prevItems.map((item) =>
-        item.titulo === updatedData.titulo ? { ...item, ...updatedData } : item
+        item.nomeArquivo === updatedData.nomeArquivo ? { ...item, ...updatedData } : item
       )
     );
   };
+
 
   const handleDelete = (itemToDelete: FormData) => {
     setItems((prevItems) => prevItems.filter(item => item !== itemToDelete));
@@ -48,7 +49,6 @@ const Documents: React.FC = () => {
     }
   };
 
-  // Função para filtrar os itens
   const filteredItems = items.filter(item => {
     return (
       item.titulo.toLowerCase().includes(filterText.toLowerCase()) ||
@@ -58,14 +58,13 @@ const Documents: React.FC = () => {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem); // Filtrar itens na paginação
+  const currentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem); 
 
   return (
     <div className="documents-container">
       <h1>Cadastrar Novo Arquivo</h1>
       <Form onSave={handleSave} initialData={null} />
 
-      {/* Filtro */}
       <div className="filter-container">
         <input
           type="text"
@@ -78,7 +77,7 @@ const Documents: React.FC = () => {
 
       <div className="cards-container">
         <h2>Created Itens</h2>
-        {filteredItems.length > 0 ? ( // Renderiza apenas os itens filtrados
+        {filteredItems.length > 0 ? ( 
           <>
             <div className="cards-list">
               {currentItems.map((item, index) => (

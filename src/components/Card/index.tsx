@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Card.css';
 import { HiOutlineDotsVertical } from 'react-icons/hi';
 import { GoDownload } from 'react-icons/go';
@@ -46,6 +46,7 @@ const Card: React.FC<CardProps> = ({ titulo, descricao, nomeArquivo, arquivo, da
     setIsEditing(!isEditing);
   };
 
+
   const handleDownload = () => {
     if (arquivo) {
       const url = URL.createObjectURL(arquivo);
@@ -87,18 +88,17 @@ const Card: React.FC<CardProps> = ({ titulo, descricao, nomeArquivo, arquivo, da
           </div>
         ) : (
           <>
-            <h3 className="card-title"><strong>Title: </strong>{titulo}</h3>
+            <p className="card-title"><strong>Title: </strong>{titulo}</p>
             <p className="card-description"><strong>Description: </strong>{descricao}</p>
             <p className="file-info"><strong>File Name: </strong>{nomeArquivo}</p>
             <p className="card-date"><strong>Created At: </strong>{dataCriacao}</p> 
-            {arquivo && (
-              <GoDownload onClick={handleDownload} className="download-button" />
-            )}
+          
           </>
         )}
       </div>
 
       <div className="card-options">
+        <GoDownload onClick={handleDownload} className="download-button" />
         <HiOutlineDotsVertical onClick={handleMenuToggle} className="menu-button" />
         {showMenu && (
           <div className="menu">
@@ -107,6 +107,9 @@ const Card: React.FC<CardProps> = ({ titulo, descricao, nomeArquivo, arquivo, da
           </div>
         )}
       </div>
+
+
+
     </div>
   );
 };
